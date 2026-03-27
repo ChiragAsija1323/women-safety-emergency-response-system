@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>பெண்கள் பாதுகாப்பு | Women Safety & Emergency Response System | GOI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --navy:#1a3a6b;--navy2:#0d1f3c;--navy3:#162f58;
+  --orange:#f36f21;--saffron:#FF9933;--india-g:#138808;
+  --red-em:#b91c1c;--white:#fff;--off:#f8f9fc;--cream:#eef1f7;
+  --border:#cdd2df;--text:#111827;--muted:#4b5e7e;
+  --shadow:0 1px 6px rgba(13,31,60,.10);--r:3px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans',sans-serif;background:var(--cream);color:var(--text);font-size:13.5px;line-height:1.55;}
+
+/* ── SKIP ── */
+.skip{position:absolute;top:-50px;left:1rem;background:var(--navy);color:#fff;padding:5px 12px;font-size:12px;z-index:9999;border-radius:0 0 3px 3px;transition:top .2s;}
+.skip:focus{top:0;}
+
+/* ── UTILITY BAR ── */
+.ubar{background:var(--navy2);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:30px;font-size:11px;color:#8aa4cc;border-bottom:1px solid #1a2d4a;}
+.ubl{display:flex;align-items:center;gap:8px;}
+.ubr{display:flex;align-items:center;gap:6px;}
+.lbtn{background:none;border:1px solid #253a5a;color:#8aa4cc;font-size:11px;font-family:inherit;padding:1px 8px;cursor:pointer;border-radius:2px;transition:all .15s;}
+.lbtn.on,.lbtn:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
+#clk{font-size:10.5px;color:#6a84a8;margin-left:8px;}
+.ubsep{color:#1e3050;padding:0 4px;}
+.ublinks{display:flex;gap:10px;margin-left:8px;}
+.ublinks a{color:#6a84a8;font-size:10.5px;text-decoration:none;}
+.ublinks a:hover{color:#fff;}
+
+/* ── HEADER ── */
+.hdr{background:#fff;border-bottom:3px solid var(--border);padding:10px 1.5rem;}
+.hdr-in{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:14px;}
+.emb{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.emb svg{width:68px;height:68px;}
+.emb-cap{font-size:8.5px;font-weight:700;color:var(--navy);letter-spacing:.08em;font-family:'Noto Sans Tamil',sans-serif;}
+.htitles{flex:1;}
+.hta{font-family:'Noto Sans Tamil',sans-serif;font-size:14px;font-weight:700;color:var(--navy);}
+.hen{font-size:1.2rem;font-weight:700;color:var(--navy);margin-top:1px;}
+.hsub{font-size:11px;color:var(--muted);margin-top:3px;}
+.hsub span{margin:0 5px;color:#bbb;}
+.hhl{border-left:3px solid var(--orange);padding-left:14px;display:flex;flex-direction:column;gap:5px;}
+.hhl-r{display:flex;justify-content:space-between;align-items:center;gap:18px;}
+.hhl-l{font-size:10.5px;color:var(--muted);}
+.hhl-n{font-size:15px;font-weight:700;color:var(--red-em);}
+.hnic{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+.nic-t{font-size:9px;color:#aaa;text-align:right;line-height:1.5;}
+.nic-b{background:var(--navy2);color:#fff;font-size:9px;font-weight:700;padding:2px 8px;border-radius:2px;letter-spacing:.1em;}
+
+/* ── TRICOLOR ── */
+.tri{display:flex;height:5px;}
+.tri span{flex:1;}
+.t1{background:var(--saffron);}.t2{background:var(--navy);}.t3{background:var(--india-g);}
+
+/* ── NAV ── */
+.mnav{background:var(--navy3);position:sticky;top:0;z-index:300;box-shadow:0 2px 8px rgba(0,0,0,.22);border-bottom:2px solid var(--orange);}
+.mnav-in{max-width:1280px;margin:0 auto;display:flex;align-items:stretch;overflow-x:auto;}
+.nb{display:flex;align-items:center;gap:5px;padding:0 13px;height:40px;color:#b0c4e4;font-size:12.5px;font-weight:500;background:none;border:none;cursor:pointer;border-bottom:3px solid transparent;transition:all .15s;white-space:nowrap;font-family:inherit;}
+.nb:hover{color:#fff;background:rgba(255,255,255,.07);}
+.nb.on{color:#fff;border-bottom-color:var(--saffron);background:rgba(255,255,255,.1);}
+
+/* ── TICKER ── */
+.ticker{background:#fffbf5;border-bottom:1px solid #f0dcc0;display:flex;align-items:center;height:28px;overflow:hidden;}
+.tk-lbl{background:var(--orange);color:#fff;font-size:9.5px;font-weight:700;padding:0 10px;height:100%;display:flex;align-items:center;letter-spacing:.07em;white-space:nowrap;flex-shrink:0;}
+.tk-track{overflow:hidden;flex:1;padding:0 10px;}
+.tk-txt{display:inline-block;white-space:nowrap;font-size:11.5px;color:#444;animation:rtl 35s linear infinite;}
+@keyframes rtl{0%{transform:translateX(80vw);}100%{transform:translateX(-100%);}}
+
+/* ── BREADCRUMB ── */
+.bcbar{background:#fff;border-bottom:1px solid var(--border);padding:5px 1.5rem;font-size:11.5px;}
+.bcin{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:5px;color:var(--muted);}
+.bcin a{color:var(--navy);cursor:pointer;}
+.bcin a:hover{text-decoration:underline;}
+.bcsep{color:#bbb;}
+
+/* ── PAGE ── */
+.page{max-width:1280px;margin:1rem auto;padding:0 1.5rem;display:flex;gap:1.1rem;align-items:flex-start;}
+
+/* ── SIDEBAR ── */
+.sb{width:220px;flex-shrink:0;display:flex;flex-direction:column;gap:10px;}
+.sbc{background:#fff;border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+.sbh{background:var(--navy);color:#fff;padding:7px 12px;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;display:flex;align-items:center;gap:6px;}
+.sbl{list-style:none;padding:3px 0;}
+.sbl li a{display:flex;flex-direction:column;padding:7px 12px;color:var(--muted);cursor:pointer;border-left:3px solid transparent;transition:all .13s;}
+.sbl li a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--orange);}
+.sben{font-size:12.5px;display:flex;align-items:center;gap:5px;}
+.sben::before{content:'▶';font-size:7px;color:var(--orange);}
+.sbta{font-family:'Noto Sans Tamil',sans-serif;font-size:10px;color:#aaa;margin-top:1px;padding-left:13px;}
+.emtbl{width:100%;border-collapse:collapse;}
+.emtbl tr{border-bottom:1px solid var(--border);}
+.emtbl tr:last-child{border:none;}
+.emtbl td{padding:6px 12px;}
+.emen{font-size:12px;color:var(--muted);}
+.emta{font-family:'Noto Sans Tamil',sans-serif;font-size:9.5px;color:#aaa;display:block;}
+.emnum{font-weight:700;color:var(--red-em);font-size:15px;text-align:right;}
+.strows{padding:6px 12px 10px;}
+.strow{display:flex;align-items:center;gap:7px;padding:4px 0;font-size:11.5px;color:var(--muted);}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dg{background:#16a34a;animation:blink 2s infinite;}
+.do{background:var(--orange);}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* ── MAIN ── */
+.main{flex:1;min-width:0;}
+
+/* ════════════════════
+   DASHBOARD SECTION
+════════════════════ */
+#dash-sec{display:none;}
+#dash-sec.show{display:block;}
+
+.dash-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.dash-title span{font-family:'Noto Sans Tamil',sans-serif;font-size:10.5px;color:var(--muted);font-weight:400;}
+
+/* Stat cards row */
+.stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px;}
+.stat-card{background:#fff;border-radius:var(--r);padding:14px 12px;border-top:3px solid;box-shadow:var(--shadow);text-align:center;}
+.stat-card:nth-child(1){border-color:var(--navy);}
+.stat-card:nth-child(2){border-color:var(--orange);}
+.stat-card:nth-child(3){border-color:#1d6fa4;}
+.stat-card:nth-child(4){border-color:var(--india-g);}
+.stat-card:nth-child(5){border-color:#6d28d9;}
+.sc-num{font-size:2rem;font-weight:700;color:var(--navy);line-height:1;}
+.sc-ico{font-size:1.4rem;margin-bottom:4px;}
+.sc-lbl{font-size:10.5px;color:var(--muted);margin-top:4px;}
+.sc-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:9.5px;color:#aaa;}
+
+/* Charts grid */
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.chart-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--shadow);}
+.chart-card h3{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border);}
+.chart-card canvas{max-height:200px;}
+
+/* ════════════════════
+   JOIN SECTION
+════════════════════ */
+#join-sec{display:none;}
+#join-sec.show{display:block;}
+
+.join-tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
+.jtab{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:6px 14px;font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;font-family:inherit;}
+.jtab:hover{border-color:var(--navy);color:var(--navy);}
+.jtab.on{background:var(--navy);border-color:var(--navy);color:#fff;}
+
+.join-desc{background:#fffbf0;border:1px solid #f0dcc0;border-radius:var(--r);padding:8px 12px;font-size:11.5px;color:#7a5a20;margin-bottom:10px;}
+.join-desc strong{color:var(--navy);}
+
+/* ════════════════════
+   DATA / TABLE SECTION
+════════════════════ */
+#data-sec{display:none;}
+#data-sec.show{display:block;}
+
+/* HOME */
+#home-sec{display:none;}
+#home-sec.show{display:block;}
+
+.welcome{background:linear-gradient(110deg,var(--navy2) 0%,var(--navy3) 55%,#1e4c90 100%);border-left:5px solid var(--saffron);color:#fff;border-radius:var(--r);padding:1.4rem 1.6rem;margin-bottom:1rem;display:flex;align-items:center;gap:1.2rem;}
+.wel-ico{font-size:2.6rem;flex-shrink:0;}
+.wel-en{font-size:1.05rem;font-weight:700;margin-bottom:3px;}
+.wel-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:13px;color:#a8c0e0;margin-bottom:5px;}
+.wel-desc{font-size:11.5px;color:#7a9abf;line-height:1.6;}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1rem;}
+.tile{background:#fff;border-radius:var(--r);padding:13px 14px;border-top:3px solid;box-shadow:var(--shadow);cursor:pointer;transition:transform .14s,box-shadow .14s;}
+.tile:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(26,58,107,.14);}
+.tile:nth-child(1){border-color:var(--navy);}
+.tile:nth-child(2){border-color:var(--orange);}
+.tile:nth-child(3){border-color:#1d6fa4;}
+.tile:nth-child(4){border-color:var(--india-g);}
+.tile:nth-child(5){border-color:#6d28d9;}
+.tile-ico{font-size:1.4rem;margin-bottom:4px;}
+.tile-lbl{font-size:9.5px;color:#aaa;text-transform:uppercase;letter-spacing:.05em;}
+.tile-en{font-size:12.5px;font-weight:700;color:var(--navy);margin-top:2px;}
+.tile-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:9.5px;color:var(--muted);}
+
+/* Shared toolbar */
+.ds-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap;}
+.ds-hd h2{font-size:1rem;font-weight:700;color:var(--navy);}
+.ds-hd .dsct{font-size:11px;color:var(--muted);margin-top:2px;}
+.ds-hd .dsta{font-family:'Noto Sans Tamil',sans-serif;font-size:10.5px;color:var(--muted);}
+.tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.sbox{display:flex;align-items:center;gap:5px;background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:5px 9px;}
+.sbox input{border:none;outline:none;font-size:12px;font-family:inherit;width:150px;color:var(--text);}
+.btn-ins{background:var(--india-g);color:#fff;border:none;border-radius:var(--r);padding:6px 13px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px;transition:background .15s;white-space:nowrap;}
+.btn-ins:hover{background:#0f6b06;}
+/* CSV button */
+.btn-csv{background:#1d6fa4;color:#fff;border:none;border-radius:var(--r);padding:6px 13px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px;transition:background .15s;white-space:nowrap;}
+.btn-csv:hover{background:#155a88;}
+
+/* Loading / Error */
+.loading{display:none;flex-direction:column;align-items:center;padding:3rem;gap:8px;color:var(--muted);}
+.loading.show{display:flex;}
+.spinner{width:34px;height:34px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .65s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.ebox{display:none;background:#fef2f2;border:1px solid #fca5a5;border-radius:var(--r);padding:12px;color:var(--red-em);align-items:center;gap:8px;font-size:12.5px;}
+.ebox.show{display:flex;}
+
+/* Table */
+.tcard{background:#fff;border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;}
+.tscroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12.5px;}
+thead tr{background:var(--navy);}
+thead th{color:#fff;font-weight:600;padding:9px 10px;text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;cursor:pointer;user-select:none;}
+thead th:hover{background:#243f78;}
+thead th.sort-asc::after{content:' ▲';font-size:8px;}
+thead th.sort-desc::after{content:' ▼';font-size:8px;}
+.th-sno{width:44px;text-align:center;cursor:default!important;}
+.th-sno:hover{background:var(--navy)!important;}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
+tbody tr:hover{background:#f0f4ff;}
+tbody tr:last-child{border:none;}
+tbody td{padding:7px 10px;color:var(--muted);white-space:nowrap;max-width:180px;overflow:hidden;text-overflow:ellipsis;}
+.tdsno{text-align:center;color:#bbb;font-size:11px;}
+.nv{color:#ccd;font-style:italic;font-size:10.5px;}
+.abtn{border:none;border-radius:3px;cursor:pointer;font-size:11px;font-weight:600;padding:3px 9px;font-family:inherit;transition:opacity .14s;display:inline-flex;align-items:center;gap:3px;}
+.abtn:hover{opacity:.75;}
+.bedit{background:#eff6ff;color:#1d4ed8;}
+.bdel{background:#fef2f2;color:var(--red-em);margin-left:4px;}
+.tfooter{background:var(--off);border-top:1px solid var(--border);padding:6px 10px;display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);}
+
+/* JOIN badge on rows */
+.join-badge{display:inline-block;background:#e0f2fe;color:#0369a1;font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:2px;margin-left:4px;}
+
+/* ── MODALS ── */
+.mbg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:600;align-items:center;justify-content:center;padding:1rem;}
+.mbg.show{display:flex;}
+.mbox{background:#fff;border-radius:4px;width:100%;max-width:540px;max-height:88vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.25);animation:pop .18s ease;}
+@keyframes pop{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+.mhdr{background:var(--navy);color:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.mhdr h3{font-size:14px;font-weight:700;}
+.mhdr .mta{font-family:'Noto Sans Tamil',sans-serif;font-size:10px;color:#a0b8d8;margin-top:2px;}
+.mclose{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;line-height:1;}
+.mbody{padding:16px;}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.fg{display:flex;flex-direction:column;gap:4px;}
+.fg label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;}
+.fg input{border:1.5px solid var(--border);border-radius:3px;padding:6px 8px;font-size:12.5px;font-family:inherit;color:var(--text);transition:border-color .14s;}
+.fg input:focus{outline:none;border-color:var(--navy);}
+.fg .pkf{background:var(--cream);color:#999;cursor:not-allowed;}
+.fg .anote{font-size:9.5px;color:#aaa;margin-top:2px;}
+.mftr{padding:12px 16px;background:var(--off);border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px;}
+.bsub{background:var(--navy);color:#fff;border:none;border-radius:3px;padding:7px 18px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .14s;}
+.bsub:hover{background:var(--navy2);}
+.bsub.grn{background:var(--india-g);}
+.bsub.grn:hover{background:#0f6b06;}
+.bcxl{background:var(--cream);color:var(--muted);border:none;border-radius:3px;padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy2);color:#fff;padding:10px 16px;border-radius:4px;font-size:12.5px;font-weight:500;box-shadow:0 3px 14px rgba(0,0,0,.18);transform:translateY(60px);opacity:0;transition:all .26s;z-index:999;}
+.toast.show{transform:translateY(0);opacity:1;}
+.tok{border-left:4px solid var(--india-g);}
+.ter{border-left:4px solid var(--red-em);}
+
+/* ── FOOTER ── */
+.sftr{background:var(--navy2);margin-top:2rem;}
+.sfm{max-width:1280px;margin:0 auto;padding:1.2rem 1.5rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;}
+.sfc h4{font-size:11px;font-weight:700;color:#8aaace;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;}
+.sfc p,.sfc li{font-size:11px;color:#5a7a9a;line-height:1.7;}
+.sfc ul{list-style:none;}
+.sfc ul li a{color:#5a7a9a;text-decoration:none;}
+.sfc ul li a:hover{color:var(--orange);}
+.sfta{font-family:'Noto Sans Tamil',sans-serif;font-size:10px;color:#3a5a7a;}
+.sfbot{border-top:1px solid #1a2f4a;padding:8px 1.5rem;}
+.sfbot-in{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;font-size:10.5px;color:#3a5a7a;}
+.sflinks{display:flex;gap:12px;flex-wrap:wrap;}
+.sflinks a{color:#3a5a7a;text-decoration:none;}
+.sflinks a:hover{color:var(--orange);}
+
+@media(max-width:900px){
+  .page{flex-direction:column;}
+  .sb{width:100%;}
+  .hhl,.hnic{display:none;}
+  .fgrid{grid-template-columns:1fr;}
+  .charts-grid{grid-template-columns:1fr;}
+  .stat-row{grid-template-columns:repeat(3,1fr);}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to Main Content | முக்கிய உள்ளடக்கத்திற்கு செல்லவும்</a>
+
+<!-- UTILITY BAR -->
+<div class="ubar">
+  <div class="ubl">
+    <!-- SVG Indian Flag with proper Ashoka Chakra -->
+    <svg width="28" height="19" viewBox="0 0 28 19" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;border:1px solid rgba(255,255,255,.15);border-radius:1px;">
+      <rect x="0" y="0"     width="28" height="6.33"  fill="#FF9933"/>
+      <rect x="0" y="6.33"  width="28" height="6.33"  fill="#FFFFFF"/>
+      <rect x="0" y="12.67" width="28" height="6.33"  fill="#138808"/>
+      <circle cx="14" cy="9.5" r="2.8" fill="none" stroke="#000080" stroke-width="0.45"/>
+      <circle cx="14" cy="9.5" r="0.45" fill="#000080"/>
+      <g stroke="#000080" stroke-width="0.3">
+        <line x1="14" y1="9.5" x2="14" y2="6.7"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(15 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(30 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(45 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(60 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(75 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(90 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(105 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(120 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(135 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(150 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(165 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(180 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(195 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(210 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(225 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(240 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(255 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(270 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(285 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(300 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(315 14 9.5)"/>
+        <line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(330 14 9.5)"/><line x1="14" y1="9.5" x2="14" y2="6.7" transform="rotate(345 14 9.5)"/>
+      </g>
+    </svg>
+    <span>இந்திய அரசு | Government of India</span>
+    <span class="ubsep">|</span>
+    <span>பெண்கள் மற்றும் குழந்தை மேம்பாட்டு அமைச்சகம் | Ministry of Women &amp; Child Development</span>
+  </div>
+  <div class="ubr">
+    <span id="clk"></span>
+    <span class="ubsep">|</span>
+    <button class="lbtn" id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+    <button class="lbtn on"  id="btn-en" onclick="setLang('en')">English</button>
+    <div class="ublinks">
+      <span class="ubsep">|</span>
+      <a href="#">அணுகல் | Accessibility</a>
+      <span class="ubsep">|</span>
+      <a href="#">உதவி | Help</a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="emb">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#1a3a6b" stroke-width="5.5"/>
+        <circle cx="100" cy="100" r="75" fill="none" stroke="#1a3a6b" stroke-width="1.2"/>
+        <circle cx="100" cy="100" r="13" fill="#1a3a6b"/>
+        <circle cx="100" cy="100" r="5.5" fill="white"/>
+        <g stroke="#1a3a6b" stroke-width="2.2" stroke-linecap="round">
+          <line x1="100" y1="87" x2="100" y2="25"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(15 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(30 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(45 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(60 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(75 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(90 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(105 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(120 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(135 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(150 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(165 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(180 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(195 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(210 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(225 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(240 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(255 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(270 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(285 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(300 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(315 100 100)"/>
+          <line x1="100" y1="87" x2="100" y2="25" transform="rotate(330 100 100)"/><line x1="100" y1="87" x2="100" y2="25" transform="rotate(345 100 100)"/>
+        </g>
+        <g fill="#1a3a6b">
+          <circle cx="100" cy="25" r="3"/><circle cx="100" cy="25" r="3" transform="rotate(15 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(30 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(45 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(60 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(75 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(90 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(105 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(120 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(135 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(150 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(165 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(180 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(195 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(210 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(225 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(240 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(255 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(270 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(285 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(300 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(315 100 100)"/>
+          <circle cx="100" cy="25" r="3" transform="rotate(330 100 100)"/><circle cx="100" cy="25" r="3" transform="rotate(345 100 100)"/>
+        </g>
+      </svg>
+      <div class="emb-cap">சத்யமேவ ஜயதே</div>
+    </div>
+    <div class="htitles">
+      <div class="hta" data-ta="பெண்கள் பாதுகாப்பு மற்றும் அவசர மறுமொழி அமைப்பு" data-en="Women Safety &amp; Emergency Response System">பெண்கள் பாதுகாப்பு மற்றும் அவசர மறுமொழி அமைப்பு</div>
+      <div class="hen">Women Safety &amp; Emergency Response System</div>
+      <div class="hsub">
+        <span data-ta="பெண்கள் மற்றும் குழந்தை மேம்பாட்டு அமைச்சகம்" data-en="Ministry of Women &amp; Child Development">Ministry of Women &amp; Child Development</span>
+        <span>|</span>
+        <span data-ta="இந்திய அரசு" data-en="Government of India">Government of India</span>
+      </div>
+    </div>
+    <div class="hhl">
+      <div class="hhl-r"><span class="hhl-l" data-ta="பெண்கள் உதவி" data-en="Women Helpline">Women Helpline</span><span class="hhl-n">1091</span></div>
+      <div class="hhl-r"><span class="hhl-l" data-ta="தேசிய அவசரநிலை" data-en="National Emergency">National Emergency</span><span class="hhl-n">112</span></div>
+      <div class="hhl-r"><span class="hhl-l" data-ta="இணைய குற்றம்" data-en="Cyber Crime">Cyber Crime</span><span class="hhl-n">1930</span></div>
+    </div>
+    <div class="hnic">
+      <div class="nic-t">Designed, Developed &amp; Hosted by<br/>தேசிய தகவல்சார் மையம்</div>
+      <div class="nic-b">NIC</div>
+    </div>
+  </div>
+</header>
+
+<div class="tri"><span class="t1"></span><span class="t2"></span><span class="t3"></span></div>
+
+<!-- NAVBAR -->
+<nav class="mnav">
+  <div class="mnav-in">
+    <button class="nb on"  onclick="showHome(this)">🏠 <span data-ta="முகப்பு"         data-en="Home">Home</span></button>
+    <button class="nb"     onclick="showDash(this)">📊 <span data-ta="டாஷ்போர்டு"     data-en="Dashboard">Dashboard</span></button>
+    <button class="nb"     onclick="showJoin(this)">🔗 <span data-ta="இணைந்த அட்டவணைகள்" data-en="JOIN Queries">JOIN Queries</span></button>
+    <button class="nb"     onclick="loadSection('users','USER',this)">👩 <span data-ta="பயனர்கள்"       data-en="Users">Users</span></button>
+    <button class="nb"     onclick="loadSection('incidents','INCIDENT',this)">🚨 <span data-ta="சம்பவங்கள்"     data-en="Incidents">Incidents</span></button>
+    <button class="nb"     onclick="loadSection('responders','RESPONDER',this)">🚒 <span data-ta="மீட்பாளர்கள்"   data-en="Responders">Responders</span></button>
+    <button class="nb"     onclick="loadSection('responder-contacts','RESPONDER_CONTACT',this)">📋 <span data-ta="மீட்பாளர் தொடர்பு" data-en="Responder Contacts">Responder Contacts</span></button>
+    <button class="nb"     onclick="loadSection('emergency-contacts','EMERGENCY_CONTACT',this)">📞 <span data-ta="அவசர தொடர்புகள்" data-en="Emergency Contacts">Emergency Contacts</span></button>
+    <button class="nb"     onclick="loadSection('emergency-contact-phones','EMERGENCY_CONTACT_PHONE',this)">📱 <span data-ta="அவசர தொடர்பு எண்கள்" data-en="EC Phone Numbers">EC Phone Numbers</span></button>
+    <button class="nb"     onclick="loadSection('locations','LOCATION',this)">📍 <span data-ta="இடங்கள்"        data-en="Locations">Locations</span></button>
+  </div>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tk-lbl">⚠️ NOTICE</div>
+  <div class="tk-track"><span class="tk-txt">இணைய உதவி: 1930 &nbsp;|&nbsp; Cyber Helpline: 1930 &nbsp;|&nbsp; அனைத்து மாவட்டங்களிலும் ஒரே நிறுத்த மையம் &nbsp;|&nbsp; One Stop Centre Scheme operational &nbsp;|&nbsp; பெண்கள் உதவி 1091 — 24×7 &nbsp;|&nbsp; Women Helpline 1091 available 24×7 &nbsp;|&nbsp; அவசரநிலைக்கு 112 &nbsp;|&nbsp; Dial 112 for emergencies</span></div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="bcbar"><div class="bcin" id="bc"><a onclick="showHome(document.querySelector('.nb'))">Home</a></div></div>
+
+<!-- PAGE -->
+<div class="page" id="main">
+
+  <!-- SIDEBAR -->
+  <aside class="sb">
+    <div class="sbc">
+      <div class="sbh">📋 <span data-ta="விரைவு அணுகல்" data-en="Quick Access">Quick Access</span></div>
+      <ul class="sbl">
+        <li><a onclick="showDash(document.querySelectorAll('.nb')[1])"><span class="sben" data-ta="டாஷ்போர்டு" data-en="Dashboard">Dashboard</span><span class="sbta">டாஷ்போர்டு</span></a></li>
+        <li><a onclick="showJoin(document.querySelectorAll('.nb')[2])"><span class="sben" data-ta="இணைந்த அட்டவணைகள்" data-en="JOIN Queries">JOIN Queries</span><span class="sbta">இணைந்த அட்டவணைகள்</span></a></li>
+        <li><a onclick="document.querySelectorAll('.nb')[3].click()"><span class="sben" data-ta="பதிவு செய்யப்பட்ட பயனர்கள்" data-en="Registered Users">Registered Users</span><span class="sbta">பதிவு செய்யப்பட்ட பயனர்கள்</span></a></li>
+        <li><a onclick="document.querySelectorAll('.nb')[4].click()"><span class="sben" data-ta="சம்பவ அறிக்கைகள்" data-en="Incident Reports">Incident Reports</span><span class="sbta">சம்பவ அறிக்கைகள்</span></a></li>
+        <li><a onclick="document.querySelectorAll('.nb')[5].click()"><span class="sben" data-ta="மீட்பாளர்கள்" data-en="Responders">Responders</span><span class="sbta">மீட்பாளர்கள்</span></a></li>
+        <li><a onclick="document.querySelectorAll('.nb')[6].click()"><span class="sben" data-ta="மீட்பாளர் தொடர்பு" data-en="Responder Contacts">Responder Contacts</span><span class="sbta">மீட்பாளர் தொடர்பு</span></a></li>
+        <li><a onclick="document.querySelectorAll('.nb')[7].click()"><span class="sben" data-ta="அவசர தொடர்புகள்" data-en="Emergency Contacts">Emergency Contacts</span><span class="sbta">அவசர தொடர்புகள்</span></a></li>
+        <li><a onclick="document.querySelectorAll('.nb')[8].click()"><span class="sben" data-ta="அவசர தொடர்பு எண்கள்" data-en="EC Phone Numbers">EC Phone Numbers</span><span class="sbta">அவசர தொடர்பு எண்கள்</span></a></li>
+        <li><a onclick="document.querySelectorAll('.nb')[9].click()"><span class="sben" data-ta="இட தரவு" data-en="Location Data">Location Data</span><span class="sbta">இட தரவு</span></a></li>
+      </ul>
+    </div>
+    <div class="sbc">
+      <div class="sbh">🆘 <span data-ta="அவசர எண்கள்" data-en="Emergency Numbers">Emergency Numbers</span></div>
+      <table class="emtbl">
+        <tr><td><span class="emen">Police</span><span class="emta">காவல்துறை</span></td><td class="emnum">100</td></tr>
+        <tr><td><span class="emen">Ambulance</span><span class="emta">ஆம்புலன்ஸ்</span></td><td class="emnum">108</td></tr>
+        <tr><td><span class="emen">Fire</span><span class="emta">தீயணைப்பு</span></td><td class="emnum">101</td></tr>
+        <tr><td><span class="emen">Women</span><span class="emta">பெண்கள்</span></td><td class="emnum">1091</td></tr>
+        <tr><td><span class="emen">Emergency</span><span class="emta">அவசரநிலை</span></td><td class="emnum">112</td></tr>
+        <tr><td><span class="emen">Cyber</span><span class="emta">இணைய குற்றம்</span></td><td class="emnum">1930</td></tr>
+      </table>
+    </div>
+    <div class="sbc">
+      <div class="sbh">📡 <span data-ta="கணினி நிலை" data-en="System Status">System Status</span></div>
+      <div class="strows">
+        <div class="strow"><span class="dot dg"></span><span data-ta="தரவுத்தளம் இணைக்கப்பட்டது" data-en="Database Connected">Database Connected</span></div>
+        <div class="strow"><span class="dot dg"></span><span data-ta="சேவையகம் இயக்கத்தில்" data-en="Server Online">Server Online</span></div>
+        <div class="strow"><span class="dot dg"></span><span data-ta="அமைப்பு செயலில்" data-en="System Active">System Active</span></div>
+        <div class="strow"><span class="dot do"></span>Last Sync: <span id="lastsync">—</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+
+    <!-- HOME -->
+    <div id="home-sec" class="show">
+      <div class="welcome">
+        <div class="wel-ico">🛡️</div>
+        <div>
+          <div class="wel-en">Women Safety &amp; Emergency Response System</div>
+          <div class="wel-ta">பெண்கள் பாதுகாப்பு மற்றும் அவசர மறுமொழி அமைப்பு</div>
+          <div class="wel-desc">Centralized dashboard with live analytics, JOIN query viewer, CSV export and full CRUD management. Use the navigation above to explore all features.</div>
+        </div>
+      </div>
+      <div class="tiles">
+        <div class="tile" onclick="showDash(document.querySelectorAll('.nb')[1])"><div class="tile-ico">📊</div><div class="tile-lbl">Feature</div><div class="tile-en">Dashboard &amp; Charts</div><div class="tile-ta">டாஷ்போர்டு மற்றும் விளக்கப்படங்கள்</div></div>
+        <div class="tile" onclick="showJoin(document.querySelectorAll('.nb')[2])"><div class="tile-ico">🔗</div><div class="tile-lbl">Feature</div><div class="tile-en">JOIN Queries</div><div class="tile-ta">இணைந்த அட்டவணைகள்</div></div>
+        <div class="tile" onclick="document.querySelectorAll('.nb')[3].click()"><div class="tile-ico">👩</div><div class="tile-lbl">Table</div><div class="tile-en">Registered Users</div><div class="tile-ta">பதிவு செய்யப்பட்ட பயனர்கள்</div></div>
+        <div class="tile" onclick="document.querySelectorAll('.nb')[4].click()"><div class="tile-ico">🚨</div><div class="tile-lbl">Table</div><div class="tile-en">Incidents</div><div class="tile-ta">சம்பவங்கள்</div></div>
+        <div class="tile" onclick="document.querySelectorAll('.nb')[5].click()"><div class="tile-ico">🚒</div><div class="tile-lbl">Table</div><div class="tile-en">Responders</div><div class="tile-ta">மீட்பாளர்கள்</div></div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dash-sec">
+      <div class="dash-title">📊 Dashboard &amp; Analytics <span>டாஷ்போர்டு மற்றும் பகுப்பாய்வு</span></div>
+
+      <!-- Stat cards -->
+      <div class="stat-row">
+        <div class="stat-card"><div class="sc-ico">👩</div><div class="sc-num" id="cnt-users">—</div><div class="sc-lbl" data-ta="பதிவு செய்யப்பட்ட பயனர்கள்" data-en="Registered Users">Registered Users</div><div class="sc-ta">பதிவு செய்யப்பட்ட பயனர்கள்</div></div>
+        <div class="stat-card"><div class="sc-ico">🚨</div><div class="sc-num" id="cnt-inc">—</div><div class="sc-lbl" data-ta="சம்பவங்கள்" data-en="Incidents">Incidents</div><div class="sc-ta">சம்பவங்கள்</div></div>
+        <div class="stat-card"><div class="sc-ico">🚒</div><div class="sc-num" id="cnt-res">—</div><div class="sc-lbl" data-ta="மீட்பாளர்கள்" data-en="Responders">Responders</div><div class="sc-ta">மீட்பாளர்கள்</div></div>
+        <div class="stat-card"><div class="sc-ico">📞</div><div class="sc-num" id="cnt-ec">—</div><div class="sc-lbl" data-ta="அவசர தொடர்புகள்" data-en="Emergency Contacts">Emergency Contacts</div><div class="sc-ta">அவசர தொடர்புகள்</div></div>
+        <div class="stat-card"><div class="sc-ico">📍</div><div class="sc-num" id="cnt-loc">—</div><div class="sc-lbl" data-ta="இடங்கள்" data-en="Locations">Locations</div><div class="sc-ta">இடங்கள்</div></div>
+      </div>
+
+      <!-- Charts -->
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>🚨 Incidents by Status &nbsp;<span style="font-weight:400;color:var(--muted);font-family:'Noto Sans Tamil',sans-serif;font-size:10px;">நிலை அடிப்படையில் சம்பவங்கள்</span></h3>
+          <canvas id="chart-status"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>🚒 Responders by Type &nbsp;<span style="font-weight:400;color:var(--muted);font-family:'Noto Sans Tamil',sans-serif;font-size:10px;">வகை அடிப்படையில் மீட்பாளர்கள்</span></h3>
+          <canvas id="chart-resp"></canvas>
+        </div>
+        <div class="chart-card" style="grid-column:1/-1;">
+          <h3>👩 Incidents per User (Top 5) &nbsp;<span style="font-weight:400;color:var(--muted);font-family:'Noto Sans Tamil',sans-serif;font-size:10px;">பயனருக்கு சம்பவங்கள்</span></h3>
+          <canvas id="chart-user-inc"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOIN SECTION -->
+    <div id="join-sec">
+      <div class="ds-bar">
+        <div class="ds-hd">
+          <h2>🔗 JOIN Query Results</h2>
+          <div class="dsta">இணைந்த அட்டவணை முடிவுகள்</div>
+        </div>
+        <div class="tools">
+          <button class="btn-csv" onclick="exportCSV()">⬇️ <span data-ta="CSV பதிவிறக்கம்" data-en="Export CSV">Export CSV</span></button>
+        </div>
+      </div>
+
+      <div class="join-tabs">
+        <button class="jtab on" onclick="loadJoin('incident-responders',this)">🚨↔🚒 Incident ↔ Responder</button>
+        <button class="jtab"    onclick="loadJoin('user-locations',this)">👩↔📍 User ↔ Location</button>
+        <button class="jtab"    onclick="loadJoin('responder-contacts',this)">🚒↔📞 Responder ↔ Contact</button>
+        <button class="jtab"    onclick="loadJoin('user-emergency-contacts',this)">👩↔📞 User ↔ Emergency Contact</button>
+      </div>
+
+      <div class="join-desc" id="join-desc">
+        <strong>SQL JOIN:</strong> <span id="join-sql-text"></span>
+      </div>
+
+      <!-- Each tab gets its own isolated container — prevents stale data bleeding across tabs -->
+      <div id="join-panel"></div>
+    </div>
+
+    <!-- DATA SECTION (CRUD tables) -->
+    <div id="data-sec">
+      <div class="ds-bar">
+        <div class="ds-hd">
+          <h2 id="ds-title"></h2>
+          <div class="dsta" id="ds-title-ta"></div>
+          <div class="dsct" id="ds-count"></div>
+        </div>
+        <div class="tools">
+          <div class="sbox">
+            <span>🔍</span>
+            <input type="text" id="search-inp" placeholder="தேடுக | Search…" oninput="filterTable(this.value)"/>
+          </div>
+          <button class="btn-csv" onclick="exportCSV()">⬇️ <span data-ta="CSV பதிவிறக்கம்" data-en="Export CSV">Export CSV</span></button>
+          <button class="btn-ins" onclick="openInsert()">➕ <span data-ta="புதிய பதிவு" data-en="Insert New Record">Insert New Record</span></button>
+        </div>
+      </div>
+      <div class="loading" id="loading"><div class="spinner"></div><span data-ta="பதிவுகள் பெறப்படுகின்றன…" data-en="Fetching records…">Fetching records…</span></div>
+      <div class="ebox" id="ebox">⚠️ <span id="etxt"></span></div>
+      <div class="tcard" id="tcard" style="display:none;">
+        <div class="tscroll"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
+        <div class="tfooter"><span id="showing"></span><span data-ta="மூலம்: MySQL தரவுத்தளம் (localhost)" data-en="Source: MySQL Database (localhost)">Source: MySQL Database (localhost)</span></div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /page -->
+
+<!-- INSERT MODAL -->
+<div class="mbg" id="ins-modal">
+  <div class="mbox">
+    <div class="mhdr"><div><h3>➕ <span data-ta="புதிய பதிவு சேர்க்கவும்" data-en="Insert New Record">Insert New Record</span></h3><div class="mta">புதிய பதிவு சேர்க்கவும்</div></div><button class="mclose" onclick="closeIns()">✕</button></div>
+    <div class="mbody"><div class="fgrid" id="ins-fields"></div></div>
+    <div class="mftr"><button class="bcxl" onclick="closeIns()">Cancel</button><button class="bsub grn" onclick="submitIns()">➕ Insert Record</button></div>
+  </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="mbg" id="edit-modal">
+  <div class="mbox">
+    <div class="mhdr"><div><h3>✏️ <span data-ta="பதிவை திருத்து" data-en="Edit Record">Edit Record</span></h3><div class="mta">பதிவை திருத்து</div></div><button class="mclose" onclick="closeEdit()">✕</button></div>
+    <div class="mbody"><div class="fgrid" id="edit-fields"></div></div>
+    <div class="mftr"><button class="bcxl" onclick="closeEdit()">Cancel</button><button class="bsub" onclick="saveEdit()">💾 Save Changes</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer class="sftr">
+  <div class="sfm">
+    <div class="sfc">
+      <h4>Women Safety System</h4>
+      <p>Women Safety &amp; Emergency Response System</p>
+      <p class="sfta">பெண்கள் பாதுகாப்பு மற்றும் அவசர மறுமொழி அமைப்பு</p>
+      <p style="margin-top:5px;">Ministry of Women &amp; Child Development<br/>Government of India</p>
+    </div>
+    <div class="sfc">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">முகப்பு | Home</a></li>
+        <li><a href="#">டாஷ்போர்டு | Dashboard</a></li>
+        <li><a href="#">JOIN அட்டவணைகள் | JOIN Queries</a></li>
+        <li><a href="#">CSV ஏற்றுமதி | Export CSV</a></li>
+      </ul>
+    </div>
+    <div class="sfc">
+      <h4>Emergency Help</h4>
+      <ul>
+        <li><a href="#">பெண்கள் | Women Helpline: 1091</a></li>
+        <li><a href="#">காவல்துறை | Police: 100</a></li>
+        <li><a href="#">ஆம்புலன்ஸ் | Ambulance: 108</a></li>
+        <li><a href="#">அவசரநிலை | Emergency: 112</a></li>
+      </ul>
+    </div>
+    <div class="sfc">
+      <h4>NIC</h4>
+      <p>Designed, Developed &amp; Maintained by</p>
+      <p><strong style="color:#8aaace;">National Informatics Centre</strong></p>
+      <p class="sfta">தேசிய தகவல்சார் மையம்</p>
+      <p style="margin-top:4px;font-size:10px;">Ministry of Electronics &amp; IT, GoI</p>
+      <p style="margin-top:5px;">Last Updated: <span id="last-updated"></span></p>
+    </div>
+  </div>
+  <div class="sfbot"><div class="sfbot-in">
+    <div class="sflinks">
+      <a href="#">தொடர்பு | Contact</a>
+      <a href="#">உரிமை மறுப்பு | Disclaimer</a>
+      <a href="#">தனியுரிமை | Privacy</a>
+      <a href="#">அணுகல் | Accessibility</a>
+      <a href="#">தள வரைபடம் | Site Map</a>
+    </div>
+    <span>© 2026 Government of India. All Rights Reserved.</span>
+  </div></div>
+</footer>
+
+<!-- ════════════ JAVASCRIPT ════════════ -->
+<script>
+// ── STATE ──────────────────────────────────
+let lang='en', currentTable='', currentEndpoint='', currentPK='', currentCols=[], allData=[], editingRow=null, editingId=null;
+let currentJoinData=[], currentJoinKey='incident-responders';
+let chartStatus=null, chartResp=null, chartUserInc=null;
+let sortCol=null, sortDir=1;
+
+const SECTIONS={
+  users:                      {en:'Registered Users',        ta:'பதிவு செய்யப்பட்ட பயனர்கள்', icon:'👩', table:'USER'},
+  incidents:                  {en:'Incident Reports',        ta:'சம்பவ அறிக்கைகள்',            icon:'🚨', table:'INCIDENT'},
+  responders:                 {en:'Emergency Responders',    ta:'அவசர மீட்பாளர்கள்',            icon:'🚒', table:'RESPONDER'},
+  'responder-contacts':       {en:'Responder Contacts',      ta:'மீட்பாளர் தொடர்பு',            icon:'📋', table:'RESPONDER_CONTACT'},
+  'emergency-contacts':       {en:'Emergency Contacts',      ta:'அவசர தொடர்புகள்',              icon:'📞', table:'EMERGENCY_CONTACT'},
+  'emergency-contact-phones': {en:'EC Phone Numbers',        ta:'அவசர தொடர்பு எண்கள்',          icon:'📱', table:'EMERGENCY_CONTACT_PHONE'},
+  locations:                  {en:'Location Data',           ta:'இட தரவு',                      icon:'📍', table:'LOCATION'},
+};
+
+// ── CLOCK ──────────────────────────────────
+function tick(){
+  const n=new Date();
+  document.getElementById('clk').textContent=n.toLocaleDateString('en-IN',{day:'2-digit',month:'2-digit',year:'numeric'})+', '+n.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  document.getElementById('lastsync').textContent=n.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+  const lu=document.getElementById('last-updated');if(lu)lu.textContent=n.toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+}
+setInterval(tick,1000);tick();
+
+// ── LANGUAGE ──────────────────────────────
+function setLang(l){
+  lang=l;
+  document.getElementById('btn-ta').classList.toggle('on',l==='ta');
+  document.getElementById('btn-en').classList.toggle('on',l==='en');
+  document.querySelectorAll('[data-ta]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!==null)el.innerHTML=v;});
+}
+
+// ── NAV HELPERS ───────────────────────────
+function hideAll(){
+  ['home-sec','dash-sec','join-sec','data-sec'].forEach(id=>{
+    const el=document.getElementById(id);el.classList.remove('show');el.style.display='none';
+  });
+}
+function show(id){document.getElementById(id).style.display='block';document.getElementById(id).classList.add('show');}
+function setNav(btn){document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+function setBc(html){document.getElementById('bc').innerHTML=html;}
+
+// ── HOME ──────────────────────────────────
+function showHome(btn){
+  setNav(btn||document.querySelector('.nb'));hideAll();show('home-sec');
+  setBc(`<a onclick="showHome()">Home</a>`);
+}
+
+// ── DASHBOARD ─────────────────────────────
+async function showDash(btn){
+  setNav(btn);hideAll();show('dash-sec');
+  setBc(`<a onclick="showHome()">Home</a><span class="bcsep">›</span>📊 Dashboard`);
+  try{
+    const res=await fetch('/dashboard');
+    const d=await res.json();
+    if(!res.ok)throw new Error(d.error||'Failed');
+
+    // Stat counts
+    document.getElementById('cnt-users').textContent=d.totalUsers[0]?.cnt??0;
+    document.getElementById('cnt-inc').textContent=d.totalIncidents[0]?.cnt??0;
+    document.getElementById('cnt-res').textContent=d.totalResponders[0]?.cnt??0;
+    document.getElementById('cnt-ec').textContent=d.totalContacts[0]?.cnt??0;
+    document.getElementById('cnt-loc').textContent=d.totalLocations[0]?.cnt??0;
+
+    // Colors
+    const colors=['#1a3a6b','#f36f21','#138808','#b91c1c','#6d28d9','#0284c7'];
+
+    // Chart 1: Incidents by status (pie)
+    if(chartStatus)chartStatus.destroy();
+    chartStatus=new Chart(document.getElementById('chart-status'),{
+      type:'doughnut',
+      data:{
+        labels:d.incidentsByStatus.length?d.incidentsByStatus.map(r=>r.label):['No Data'],
+        datasets:[{data:d.incidentsByStatus.length?d.incidentsByStatus.map(r=>r.value):[1],backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]
+      },
+      options:{responsive:true,plugins:{legend:{position:'right',labels:{font:{size:11}}}}}
+    });
+
+    // Chart 2: Responders by type (bar)
+    if(chartResp)chartResp.destroy();
+    chartResp=new Chart(document.getElementById('chart-resp'),{
+      type:'bar',
+      data:{
+        labels:d.respondersByType.length?d.respondersByType.map(r=>r.label):['No Data'],
+        datasets:[{label:'Count',data:d.respondersByType.length?d.respondersByType.map(r=>r.value):[0],backgroundColor:colors,borderRadius:3}]
+      },
+      options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}
+    });
+
+    // Chart 3: Incidents per user (horizontal bar)
+    if(chartUserInc)chartUserInc.destroy();
+    chartUserInc=new Chart(document.getElementById('chart-user-inc'),{
+      type:'bar',
+      data:{
+        labels:d.incidentsPerUser.length?d.incidentsPerUser.map(r=>r.label):['No Data'],
+        datasets:[{label:'Incidents',data:d.incidentsPerUser.length?d.incidentsPerUser.map(r=>r.value):[0],backgroundColor:'#1a3a6b',borderRadius:3}]
+      },
+      options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{stepSize:1}}}}
+    });
+
+  }catch(e){showToast('❌ Dashboard error: '+e.message,'ter');}
+}
+
+// ── JOIN QUERIES ──────────────────────────
+const JOIN_DESCS={
+  'incident-responders':    'Shows each INCIDENT matched with its assigned RESPONDER via the INCIDENT_RESPONDER bridge table (INNER JOIN — only matched records).',
+  'user-locations':         'Shows each USER matched with their tracked LOCATION via LocationID (INNER JOIN — only users with a location).',
+  'responder-contacts':     'Shows each RESPONDER matched with their RESPONDER_CONTACT phone numbers (INNER JOIN — only responders with contacts).',
+  'user-emergency-contacts':'Shows each USER matched with their EMERGENCY_CONTACT and phone from EMERGENCY_CONTACT_PHONE (INNER JOIN — only users with contacts).',
+};
+const JOIN_SQL_TEXT={
+  'incident-responders':       'INCIDENT ⋈ INCIDENT_RESPONDER ⋈ RESPONDER (via IncidentID, ResponderID)',
+  'user-locations':            'USER ⋈ LOCATION (via UserID)',
+  'responder-contacts':        'RESPONDER ⋈ RESPONDER_CONTACT (via ResponderID)',
+  'user-emergency-contacts':   'USER ⋈ EMERGENCY_CONTACT ⋈ EMERGENCY_CONTACT_PHONE (via UserID, ContactID)',
+};
+
+const joinCache = {};
+let _activeJoinAbort = null;   // AbortController for in-flight join fetch
+let _activeJoinKey   = null;   // which tab is currently loading
+
+// Called by nav button: show the section, load tab 1 only if not already open
+function showJoin(btn){
+  const wasOpen = document.getElementById('join-sec').classList.contains('show');
+  setNav(btn); hideAll(); show('join-sec');
+  setBc(`<a onclick="showHome()">Home</a><span class="bcsep">›</span>🔗 JOIN Queries`);
+  // Always update description bar for the current active tab
+  const descEl = document.getElementById('join-desc');
+  if(descEl) descEl.innerHTML = `<strong>SQL JOIN:</strong> ${JOIN_DESCS[currentJoinKey] || currentJoinKey}`;
+  if (!wasOpen) {
+    // First open: activate and load tab 1
+    sortCol = null; sortDir = 1;
+    document.querySelectorAll('.jtab').forEach(b => b.classList.remove('on'));
+    const firstTab = document.querySelector('.jtab');
+    if(firstTab) { firstTab.classList.add('on'); loadJoin('incident-responders', firstTab); }
+  }
+}
+
+async function loadJoin(key, btn){
+  // --- Cancel any in-flight request immediately ---
+  if (_activeJoinAbort) { _activeJoinAbort.abort(); _activeJoinAbort = null; }
+  _activeJoinKey = key;
+
+  // Mark active tab
+  document.querySelectorAll('.jtab').forEach(b => b.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+
+  // Update description bar RIGHT NOW (synchronous, before any await)
+  const descEl = document.getElementById('join-desc');
+  if(descEl) descEl.innerHTML = `<strong>SQL JOIN:</strong> ${JOIN_DESCS[key] || key}`;
+  const sqlEl = document.getElementById('join-sql-text');
+  if(sqlEl) sqlEl.textContent = JOIN_SQL_TEXT[key] || key;
+
+  currentJoinKey = key;
+  const panel = document.getElementById('join-panel');
+  panel.innerHTML = `<div class="loading show"><div class="spinner"></div><span>Running JOIN query…</span></div>`;
+
+  const controller = new AbortController();
+  _activeJoinAbort  = controller;
+
+  try {
+    const res  = await fetch('/join/' + key + '?_=' + Date.now(),
+                             { cache: 'no-store', signal: controller.signal });
+    const data = await res.json();
+
+    // Guard: if another tab was clicked before this fetch completed, discard
+    if (_activeJoinKey !== key) return;
+
+    if (!res.ok) throw new Error(data.error || 'Server error on JOIN query');
+    if (!Array.isArray(data)) throw new Error('Unexpected response: ' + JSON.stringify(data).slice(0,100));
+
+    if (data.length === 0) {
+      panel.innerHTML = `<div class="ebox show">⚠️ No records found for this JOIN. Check that the tables have data.</div>`;
+      joinCache[key] = [];
+      currentJoinData = [];
+      return;
+    }
+
+    joinCache[key] = data;
+    currentJoinData = data;
+
+    // Build table HTML directly — no shared DOM nodes, no race conditions
+    const cols = Object.keys(data[0]);
+    const thCells = cols.map(c =>
+      `<th style="cursor:pointer" onclick="sortJoinCol('${c}')">${c.replace(/_/g,' ').toUpperCase()}</th>`
+    ).join('');
+
+    const trRows = data.map((row, i) => {
+      const tds = cols.map(c => {
+        let v = row[c];
+        if (v === null || v === undefined) return `<td><span class="nv">—</span></td>`;
+        if (typeof v === 'string' && v.match(/^\d{4}-\d{2}-\d{2}T/)) v = new Date(v).toLocaleString('en-IN');
+        return `<td title="${v}">${v}</td>`;
+      }).join('');
+      return `<tr><td class="tdsno">${i+1}</td>${tds}</tr>`;
+    }).join('');
+
+    panel.innerHTML = `
+      <div class="tcard" style="display:block;">
+        <div class="tscroll">
+          <table id="join-table-${key}">
+            <thead><tr><th class="th-sno">S.NO.</th>${thCells}</tr></thead>
+            <tbody>${trRows}</tbody>
+          </table>
+        </div>
+        <div class="tfooter">
+          <span>${data.length} rows returned</span>
+          <span>JOIN Query — MySQL Database (localhost)</span>
+        </div>
+      </div>`;
+
+  } catch(e) {
+    panel.innerHTML = `<div class="ebox show">⚠️ ${e.message}</div>`;
+    console.error('[JOIN] Error for', key, ':', e);
+  }
+}
+
+function sortJoinCol(col){
+  if(!currentJoinData.length) return;
+  if(sortCol===col) sortDir*=-1; else { sortCol=col; sortDir=1; }
+  const sorted=[...currentJoinData].sort((a,b)=>{
+    let av=a[col]??'', bv=b[col]??'';
+    if(!isNaN(av)&&!isNaN(bv)){av=Number(av);bv=Number(bv);}
+    return av<bv?-sortDir:av>bv?sortDir:0;
+  });
+  // Re-render with sorted data but same key
+  currentJoinData = sorted;
+  const cols = Object.keys(sorted[0]);
+  const tbody = document.querySelector(`#join-panel tbody`);
+  if(!tbody) return;
+  tbody.innerHTML = sorted.map((row,i)=>{
+    const tds = cols.map(c=>{
+      let v=row[c];
+      if(v===null||v===undefined) return`<td><span class="nv">—</span></td>`;
+      if(typeof v==='string'&&v.match(/^\d{4}-\d{2}-\d{2}T/)) v=new Date(v).toLocaleString('en-IN');
+      return`<td title="${v}">${v}</td>`;
+    }).join('');
+    return`<tr><td class="tdsno">${i+1}</td>${tds}</tr>`;
+  }).join('');
+}
+
+// ── LOAD CRUD SECTION ─────────────────────
+async function loadSection(endpoint,table,btn){
+  setNav(btn);hideAll();show('data-sec');
+  currentEndpoint=endpoint;currentTable=table;
+  const info=SECTIONS[endpoint]||{};
+  setBc(`<a onclick="showHome()">Home</a><span class="bcsep">›</span>${info.icon} ${info.en}`);
+  document.getElementById('ds-title').textContent=info.icon+' '+info.en;
+  document.getElementById('ds-title-ta').textContent=info.ta||'';
+  document.getElementById('ds-count').textContent='';
+  document.getElementById('search-inp').value='';
+  document.getElementById('loading').classList.add('show');
+  document.getElementById('ebox').classList.remove('show');
+  document.getElementById('tcard').style.display='none';
+  try{
+    const [pkR,colR,dataR]=await Promise.all([fetch(`/pk/${table}`),fetch(`/columns/${table}`),fetch(`/${endpoint}`)]);
+    const [pkD,colD,data]=await Promise.all([pkR.json(),colR.json(),dataR.json()]);
+    if(!pkR.ok)throw new Error(pkD.error||'PK error');
+    if(!dataR.ok)throw new Error(data.error||'Data error');
+    currentPK=pkD.pk;currentCols=Array.isArray(colD)?colD:[];
+    document.getElementById('loading').classList.remove('show');
+    if(!data.length){showErr('No records found. Click "Insert New Record" to add data.');return;}
+    allData=data;buildTable(data);
+  }catch(e){
+    document.getElementById('loading').classList.remove('show');
+    showErr(e.message.includes('Failed to fetch')?'Cannot connect to server. Run "node server.js"!':e.message);
+  }
+}
+
+// ── BUILD TABLE (CRUD) ────────────────────
+function buildTable(data){
+  buildGenericTable(data,'thead','tbody',true);
+  const t=allData.length,s=data.length;
+  document.getElementById('ds-count').textContent=`Total: ${t} records`;
+  document.getElementById('showing').textContent=`Showing ${s} of ${t} records`;
+  document.getElementById('tcard').style.display='block';
+}
+
+// ── BUILD TABLE (CRUD) ────────────────────
+function buildGenericTable(data,headId,bodyId,showActions){
+  const cols=Object.keys(data[0]);
+  const thead=document.getElementById(headId);
+  const tbody=document.getElementById(bodyId);
+  thead.innerHTML='<tr><th class="th-sno">S.NO.</th>'+cols.map((c,i)=>`<th onclick="sortByCol(${i},'${headId}','${bodyId}',${showActions})">${c.replace(/_/g,' ')}</th>`).join('')+(showActions?'<th style="text-align:center">ACTIONS</th>':'')+'</tr>';
+  tbody.innerHTML=data.map((row,i)=>{
+    const id=showActions?row[currentPK]:'';
+    const cells=cols.map(c=>{
+      let v=row[c];
+      if(v===null||v===undefined)return'<td><span class="nv">—</span></td>';
+      if(typeof v==='string'&&v.match(/^\d{4}-\d{2}-\d{2}T/))v=new Date(v).toLocaleString('en-IN');
+      return`<td title="${v}">${v}</td>`;
+    }).join('');
+    const actions=showActions?`<td style="text-align:center;white-space:nowrap;"><button class="abtn bedit" onclick='openEdit(${JSON.stringify(row)})'>✏️ Edit</button><button class="abtn bdel" onclick="deleteRow('${id}')">🗑️ Delete</button></td>`:'';
+    return`<tr><td class="tdsno">${i+1}</td>${cells}${actions}</tr>`;
+  }).join('');
+}
+
+// ── SORT ──────────────────────────────────
+function sortByCol(colIdx,headId,bodyId,showActions){
+  const activeData=bodyId==='tbody'?allData:currentJoinData;
+  const cols=Object.keys(activeData[0]);
+  const col=cols[colIdx];
+  if(sortCol===col)sortDir*=-1; else{sortCol=col;sortDir=1;}
+  const sorted=[...activeData].sort((a,b)=>{
+    let av=a[col]??'',bv=b[col]??'';
+    if(!isNaN(av)&&!isNaN(bv)){av=Number(av);bv=Number(bv);}
+    return av<bv?-sortDir:av>bv?sortDir:0;
+  });
+  buildGenericTable(sorted,headId,bodyId,showActions);
+  document.querySelectorAll(`#${headId} th`).forEach(th=>th.classList.remove('sort-asc','sort-desc'));
+  const ths=document.querySelectorAll(`#${headId} th`);
+  if(ths[colIdx+1])ths[colIdx+1].classList.add(sortDir===1?'sort-asc':'sort-desc');
+}
+
+// ── SEARCH ────────────────────────────────
+function filterTable(q){
+  if(!q.trim()){buildTable(allData);return;}
+  q=q.toLowerCase();
+  buildTable(allData.filter(r=>Object.values(r).some(v=>v&&String(v).toLowerCase().includes(q))));
+}
+
+// ── CSV EXPORT ────────────────────────────
+function exportCSV(){
+  const data = document.getElementById('join-sec').classList.contains('show') ? currentJoinData : allData;
+  if(!data||!data.length){showToast('No data to export!','ter');return;}
+  const cols=Object.keys(data[0]);
+  const csv=[cols.join(','),...data.map(row=>cols.map(c=>{
+    let v=row[c]??'';
+    v=String(v).replace(/"/g,'""');
+    return v.includes(',')||v.includes('"')||v.includes('\n')?`"${v}"`:v;
+  }).join(','))].join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const filename=(currentTable||currentJoinKey||'data')+'_export_'+new Date().toISOString().slice(0,10)+'.csv';
+  a.href=url;a.download=filename;a.click();
+  URL.revokeObjectURL(url);
+  showToast(`✅ Exported ${data.length} rows to ${filename}`,'tok');
+}
+
+// ── INSERT ────────────────────────────────
+function openInsert(){
+  if(!currentTable){showToast('Select a table first.','ter');return;}
+  const fields=currentCols.filter(c=>!(c.key==='PRI'&&c.extra.includes('auto_increment')));
+  document.getElementById('ins-fields').innerHTML=fields.map(c=>`
+    <div class="fg"><label>${c.name.replace(/_/g,' ').toUpperCase()}${c.nullable?'':' *'}</label>
+    <input type="text" id="ins_${c.name}" placeholder="${c.nullable?'Optional (NULL)':'Required'}"/>
+    ${c.extra.includes('auto_increment')?'<span class="anote">Auto-generated</span>':''}</div>`).join('');
+  document.getElementById('ins-modal').classList.add('show');
+}
+function closeIns(){document.getElementById('ins-modal').classList.remove('show');}
+async function submitIns(){
+  const fields=currentCols.filter(c=>!(c.key==='PRI'&&c.extra.includes('auto_increment')));
+  const body={};
+  fields.forEach(c=>{const v=document.getElementById('ins_'+c.name)?.value?.trim();if(v)body[c.name]=v;});
+  if(!Object.keys(body).length){showToast('Fill at least one field.','ter');return;}
+  try{
+    const res=await fetch(`/insert/${currentTable}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await res.json();if(!res.ok)throw new Error(d.error);
+    closeIns();showToast(`✅ Record inserted! ID: ${d.insertId}`,'tok');
+    loadSection(currentEndpoint,currentTable,document.querySelector('.nb.on'));
+  }catch(e){showToast('❌ '+e.message,'ter');}
+}
+
+// ── EDIT ─────────────────────────────────
+function openEdit(row){
+  editingRow=row;editingId=row[currentPK];
+  document.getElementById('edit-fields').innerHTML=Object.keys(row).map(f=>{
+    const isPK=f===currentPK;
+    return`<div class="fg"><label>${f.replace(/_/g,' ').toUpperCase()}${isPK?' (ID)':''}</label>
+    <input type="text" id="edit_${f}" value="${row[f]===null?'':row[f]}" class="${isPK?'pkf':''}" ${isPK?'disabled readonly':''}/></div>`;
+  }).join('');
+  document.getElementById('edit-modal').classList.add('show');
+}
+function closeEdit(){document.getElementById('edit-modal').classList.remove('show');}
+async function saveEdit(){
+  const fields=Object.keys(editingRow).filter(f=>f!==currentPK);
+  const body={};fields.forEach(f=>{const v=document.getElementById('edit_'+f).value;body[f]=v===''?null:v;});
+  try{
+    const res=await fetch(`/update/${currentTable}/${editingId}`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await res.json();if(!res.ok)throw new Error(d.error);
+    closeEdit();showToast('✅ Record updated!','tok');
+    loadSection(currentEndpoint,currentTable,document.querySelector('.nb.on'));
+  }catch(e){showToast('❌ '+e.message,'ter');}
+}
+
+// ── DELETE ────────────────────────────────
+async function deleteRow(id){
+  if(!confirm('Delete this record permanently? This cannot be undone.'))return;
+  try{
+    const res=await fetch(`/delete/${currentTable}/${id}`,{method:'DELETE'});
+    const d=await res.json();if(!res.ok)throw new Error(d.error);
+    showToast('🗑️ Record deleted!','tok');
+    loadSection(currentEndpoint,currentTable,document.querySelector('.nb.on'));
+  }catch(e){showToast('❌ '+e.message,'ter');}
+}
+
+// ── HELPERS ───────────────────────────────
+function showErr(msg){document.getElementById('etxt').textContent=msg;document.getElementById('ebox').classList.add('show');}
+function showToast(msg,cls){
+  const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+cls+' show';
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+['ins-modal','edit-modal'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
+});
+</script>
+</body>
+</html>
